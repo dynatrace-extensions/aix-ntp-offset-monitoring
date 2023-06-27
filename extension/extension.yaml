@@ -1,0 +1,40 @@
+name: custom:metadata-aix-ntp
+version: "1.0.0"
+minDynatraceVersion: "1.269.0"
+author:
+  name: Dynatrace
+
+metrics:
+  - key: aix.ntp.offset
+    metadata:
+      displayName: AIX NTP Offset
+      unit: Second
+      dimensions:
+        - key: ntp_server
+          displayName: NTP Server
+        - key: dt.security_context
+          displayName: Security Context
+        - key: host.name
+          displayName: Host Name
+        - key: dt.metrics.source
+          displayName: Metric Source
+
+screens:
+  - entityType: HOST
+    detailsInjections:
+      - type: CHART_GROUP
+        key: aix_ntp_offset
+        conditions:
+          - entityAttribute|osType=AIX
+    chartsCards:
+      - key: aix_ntp_offset
+        mode: NORMAL
+        numberOfVisibleCharts: 1
+        chartsInRow: 1
+        displayName: NTP Offset
+        charts:
+          - displayName: NTP Offset
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              metrics:
+                - metricSelector: aix.ntp.offset:splitBy("ntp_server")
