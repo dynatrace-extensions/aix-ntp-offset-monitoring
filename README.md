@@ -11,10 +11,10 @@ Included with Dynatrace OneAgent version 1.269+ is the ability to send ingest me
 The [aix-ntp-offset.sh](./aix-ntp-offset.sh) is an example script that parses the /etc/ntp.conf file to find the configured NTP servers and tests the offset between that server and the host the script is running on. It has examples of both how to use the `dynatrace_ingest` CLI tool as well as sending metrics and logs via the local OneAgent APIs. 
 
 ## Extensions 2.0 
-**This custom extension will need to be built, signed, and uploaded by the user.** Please follow the instructions [here](https://www.dynatrace.com/support/help/shortlink/sign-extension#dt-cli) to do that.
+**This script will work standalone. If you are looking to see this metric on the host screen, there is a light weight extension included in this repo. You can achieve this by building, signing, and uploading the extension included in this repository.** 
+Please follow the instructions [here](https://www.dynatrace.com/support/help/shortlink/sign-extension#dt-cli) to do that.
 
-
-Included in this repository is a custom Extensions 2.0 extension that defines both the metadata for the ingested metric as well as injects a chart card on to the host screen as seen below : 
+This custom Extensions 2.0 extension defines both the metadata for the ingested metric as well as injects a chart card on to the host screen as seen below : 
 
 ![AIX Host Screen](./images/AIX%20Host%20Screen.png)
 
