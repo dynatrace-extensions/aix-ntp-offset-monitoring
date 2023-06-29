@@ -41,3 +41,7 @@ Tested on AIX Versions with OneAgent version v1.269
 - AIX, ver. 7.2 TL 3, SP 6
 - AIX, ver. 7.1 TL 5, SP 3
 - AIX, ver. 6.1 TL 9, SP 12
+
+## Support
+
+For support using this open source project, please open a github issue explaining your issue and providing code examples, environment details
