@@ -21,7 +21,7 @@ do
     mint_line="aix.ntp.offset,ntp_server=\"${serverarray[$i]}\" ${value}"
     
     # check to make sure return offset value is a number
-    re='^[0-9]+([.][0-9]+)?$'
+    re='^[-]?[0-9]+([.][0-9]+)?$'
 
     if [[ $value =~ $re ]]; then
       echo "LOG : ${mint_line}"
