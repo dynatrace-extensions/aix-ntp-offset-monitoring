@@ -32,13 +32,13 @@ do
       # curl --data "${mint_line}" http://localhost:14499/metrics/ingest -H "Content-Type: text/plain; charset=utf-8"
 
     else
-      echo "LOG : ERROR could not collect NTP offset : ${mint_line} : ${$value}"
+      echo "LOG : ERROR could not collect NTP offset : ${mint_line} : ${value}"
+      # optionally use logs ingest to send in a failure message
+      # curl -i -X POST "http://localhost:14499/v2/logs/ingest"  -H "Content-Type: application/json; charset=utf-8" -d "{\"content\": \"NTP Offset Script Failed\", \"severity\" : \"ERROR\"}"
     fi 
 
     let i++
 done
 
-# optionally use logs ingest to send in success message
-# curl -i -X POST "http://localhost:14499/v2/logs/ingest"  -H "Content-Type: application/json; charset=utf-8" -d "{\"content\": \"Ran NTP Offset Script Successfully\", \"severity\" : \"INFO\"}"
 
 echo "LOG : NTP offset script run complete"
